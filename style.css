@@ -1,0 +1,140 @@
+*{
+  text-decoration: none;
+    font-family: system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      "Noto Sans",
+      "Liberation Sans",
+      Arial,
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji";
+}
+body{
+  position: relative;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+canvas {
+  position: absolute;
+  left:0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.2);
+  z-index: -1;
+}
+.cs-eva {
+  position: absolute;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 20vh;
+  width: 70%;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-weight: bold;
+  font-size: 6vh;
+  animation: heartbeat 1.5s infinite;
+}
+
+/* Definimos la animación con @keyframes */
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    color: rgb(255, 140, 140);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    color: red;
+  }
+}
+div{
+    position: absolute;
+    color: white;
+    height: auto;
+    width: 30vh;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cs-btns {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: flex 0.3s ease;
+  overflow: hidden;
+  height: 6vh;
+  padding: 0.15vh;
+  background: #000;
+  position: relative;
+}
+
+.cs-btns::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background-size: 400%;
+  opacity: 0;
+  transition: .5s;
+  animation: animate 20s linear infinite;
+}
+
+.cs-btns:hover::before,
+.cs-btns:hover::after {
+  opacity: 1;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 300% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.cs-btns span {
+  font-size: 2.3vh;
+  display: flex;
+  background: #0c0c0c;
+  color: rgba(255, 255, 255, 0.603);
+  align-items: center;
+  justify-content: center;
+  transition: .5s;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.cs-btns span:hover {
+  letter-spacing: 0.6vh;
+  font-weight: bold;
+  color: red;
+}
